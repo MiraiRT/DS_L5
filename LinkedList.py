@@ -117,22 +117,19 @@ class List:
         self.head = self.head.next
         return head.data
 
+    def reverse(self):
+        new_head = self.findLast()
+        for i in range(self.size() - 1):
+            head = self.findLast()
+            tail = self.before(self.findLast().data)
+            head.next = tail
+            tail.next = None
+        self.head = new_head
 
-n3 = Node('D')
-n2 = Node('C', n3)
-n1 = Node('B', n2)
-print(n1)
+n3 = Node('C')
+n2 = Node('B', n3)
+n1 = Node('A', n2)
 p = List(n1)
 print(p)
-print(p.size())
-p.append('E')
-print(p)
-p.addHead('A')
-print(p)
-print(p.isIn('A'))
-print(p.isIn('R'))
-print(p.before('D'))
-print(p.remove('C'))
-print(p.removeTail())
-print(p.removeHead())
+p.reverse()
 print(p)
