@@ -11,7 +11,6 @@ class List:
     def __init__(self, head=None):
         self.head = head
         self.data = head.data
-        self.tail = head.next
 
     def __str__(self):
         s = '['
@@ -126,7 +125,9 @@ class List:
             tail.next = None
         self.head = new_head
 
-n3 = Node('C')
+
+n4 = Node('D')
+n3 = Node('C', n4)
 n2 = Node('B', n3)
 n1 = Node('A', n2)
 p = List(n1)
